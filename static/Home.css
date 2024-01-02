@@ -1,0 +1,73 @@
+body{
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 7px 7px black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 900px;
+    padding: 50px;
+    padding-top: 0px;
+
+    position:absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -30px);
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+
+a{
+    margin: 10px;
+    color: black;
+}
+
+#B{
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 7px 7px black;
+    text-align: center;
+    width: 500px;
+    padding: 10px;
+}
+
+#A{
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 7px 7px black;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    border-radius: 50%; /* Make the image circular */
+    width: 150px; /* Set the width of the image */
+    height: 150px; /* Set the height of the image */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Add a black shadow at the bottom */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+button{
+    background-color: transparent;
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 30px;
+}
+
+#inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, button {
+    margin: 5px;
+}
+

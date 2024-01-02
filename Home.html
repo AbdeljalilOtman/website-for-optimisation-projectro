@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}" media="screen">
+    <script>
+      function updateInputs() {
+          var selectValue = document.getElementById("selectOption").value;
+          var inputContainer = document.getElementById("inputContainer");
+
+          // Clear existing inputs
+          inputContainer.innerHTML = "";
+
+          // Add new inputs based on the selected value
+          for (var i = 0; i < selectValue; i++) {
+              var inputLabel = document.createElement("label");
+              inputLabel.htmlFor = "Input" + (i + 1);
+              inputLabel.innerHTML = "Enter something " + (i + 1) + ":";
+
+              var inputElement = document.createElement("input");
+              inputElement.type = "text";
+              inputElement.id = "Input" + (i + 1);
+              inputElement.name = "Input" + (i + 1);
+              inputElement.required = true;
+
+              // Append the label and input to the container
+              inputContainer.appendChild(inputLabel);
+              inputContainer.appendChild(inputElement);
+          }
+      }
+  </script>
+  </head>
+
+<body>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+
+  <section id="B">
+    <div>
+        <h2 >Optimax</h2>
+        <p >find the best ways to optimize your life.</p>
+        <a href="/about"><button id = 'learn'>Learn More</button></a>
+    </div>
+  </section>
+
+  <section id="A">
+    <div>
+        <h2 >Project Optimax</h2>
+        <p >Project Optimax stands as a transformative initiative dedicated to equipping individuals with the formidable tool of mathematical prowess. With the belief that mathematical understanding serves as a catalyst for personal and professional growth, our project aspires to empower people to navigate the complexities of life with precision and confidence.</p>
+    </div>
+    <img src="{{ url_for('static', filename='background.jpg') }}" alt="">
+  </section>
+      
+
+      <section class="u-clearfix u-section-3" id="sec-form">
+        <div >
+            <h2 >Enter Information</h2>
+            <form action="/submit" method="post">
+                  <!--<label for="selectOption">Select number of inputs:</label>
+                <select id="selectOption" name="selectOption">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>-->
+
+                <!-- Container for dynamic inputs -->
+                <div id="inputContainer">
+                    <label for="Input1">Duree (min):</label>
+                    <input type="text" id="Input1" name="Input1" required>
+                    <label for="Input2"> Debut de la seance:</label>
+                    <input type="text" id="Input2" name="Input2" required>
+                    <label for="Input3">Fin de la seance:</label>
+                    <input type="text" id="Input3" name="Input3" required>
+                    <label for="Input4">Temperature (°C):</label>
+                    <input type="text" id="Input4" name="Input4" required>
+                    <label for="Input4">Rating:</label>
+                    <input type="text" id="Input5" name="Input5" required>
+                </div>
+                  <button type="submit">Submit</button>
+          </form>
+          {% if result %}
+              <p>Your optimal values are : </p>
+              <h4>Duree (min) {{result[0]}}</h4>
+              <h4>Debut de la seance: {{result[1]}}</h4>
+              <h4>Fin de la seance: {{result[2]}}</h4>
+              <h4>Temperature (°C): {{result[3]}}</h4>
+            {% endif %}
+        </div>
+      </section>
+      
+      
+      
+      <footer id="sec-1929"><div class="u-clearfix u-sheet u-sheet-1">
+          <p class="u-small-text u-text u-text-variant u-text-1">created by the team of UM6P</p>
+        </div></footer>
+
+      
+ 
+  
+</body>
+</html>
